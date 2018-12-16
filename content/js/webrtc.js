@@ -1,5 +1,4 @@
 /*SIGNALING CODE*/
-var getScreenMedia = require('getscreenmedia');
 io = io.connect();
 var myName = "";
 var theirName = "";
