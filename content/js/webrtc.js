@@ -60,6 +60,7 @@ io.on('signal', function(data) {
 
 function startSignaling() {
 	console.log("starting signaling.");
+	var t0=performance.now();
 	rtcPeerConn = new webkitRTCPeerConnection(configuration);
 	dataChannel = rtcPeerConn.createDataChannel('textMessages', dataChannelOptions);
 				
@@ -84,6 +85,9 @@ function startSignaling() {
 	// once remote stream arrives, show it in the main video element
 	rtcPeerConn.onaddstream = function (evt) {
 		console.log("going to add their stream...");
+		var t3= performance.now();
+
+		console.log("Time taken to add their Stream " + (t3- t0) + " milliseconds.");
 		mainVideoArea.src = URL.createObjectURL(evt.stream);
 	};
 	
@@ -94,6 +98,9 @@ function startSignaling() {
 		'video': true
 	}, function (stream) {
 		console.log("going to display my stream...");
+		var t1= performance.now();
+
+        console.log("Time taken to get localstream =" + (t1 - t0) + " milliseconds.");
 		smallVideoArea.src = URL.createObjectURL(stream);
 		rtcPeerConn.addStream(stream);
 	}, logError);
