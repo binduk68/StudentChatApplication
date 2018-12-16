@@ -1,5 +1,6 @@
 var express = require('express.io');
 var connect= require('connect');
+var getScreenMedia = require('getscreenmedia');
 var app = express();
 app.http().io();
 var PORT = 3000;
