@@ -116,7 +116,7 @@ function sendLocalDesc(desc) {
 }
 			
 function logError(error) {
-Console.log("Error=", error);
+console.log("Error=", error);
 }
 
 var muteMyself = document.querySelector("#muteMyself");
