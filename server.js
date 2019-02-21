@@ -15,7 +15,7 @@ app.get('/', function(req, res){
 });
 
 app.listen(process.env.PORT || PORT);
-app.use('/peerjs', ExpressPeerServer(options));
+
 app.io.route('signal', function(req) {
 	req.io.join(req.data);
 	req.io.join('files');
