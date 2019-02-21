@@ -12,6 +12,14 @@ app.get('/', function(req, res){
 	res.render('index.ejs');
 });
 
+var fs = require('fs');  // for file transfer
+var PeerServer = require('peer').PeerServer;
+
+var server = PeerServer({
+    port: 3001,
+    path: '/peerjs',
+    });
+
 app.listen(process.env.PORT || PORT);
 
 app.io.route('signal', function(req) {
